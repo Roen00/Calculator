@@ -2,6 +2,8 @@ package zelek.rafal.calculator;
 
 import static org.junit.Assert.*;
 
+import java.util.Optional;
+
 import org.junit.Test;
 
 public class CalculatorTest {
@@ -25,6 +27,41 @@ public class CalculatorTest {
 		Calculator sut = new Calculator();
 		int result = sut.add(-10,10);
 		assertSame(result, 0);
+	}
+
+	@Test
+	public void testThat10DividedBy10GivesSomeOf1(){
+		Calculator sut = new Calculator();
+		Optional<Integer> result = sut.div(10, 10);
+		assertEquals(result, Optional.of(1));
+	}
+	
+	@Test
+	public void testThat10DividedByNegative10GivesSomeOfNegative1(){
+		Calculator sut = new Calculator();
+		Optional<Integer> result = sut.div(10, -10);
+		assertEquals(result, Optional.of(-1));
+	}
+	
+	@Test
+	public void testThat10DividedBy0GivesNone(){
+		Calculator sut = new Calculator();
+		Optional<Integer> result = sut.div(10, 0);
+		assertEquals(result, Optional.empty());
+	}
+	
+	@Test
+	public void testThat0DividedBy0GivesNone(){
+		Calculator sut = new Calculator();
+		Optional<Integer> result = sut.div(0, 0);
+		assertEquals(result, Optional.empty());
+	}
+	
+	@Test
+	public void testThat0DividedBy10GivesSomeOf0(){
+		Calculator sut = new Calculator();
+		Optional<Integer> result = sut.div(0, 10);
+		assertEquals(result, Optional.of(0));
 	}
 	
 }
