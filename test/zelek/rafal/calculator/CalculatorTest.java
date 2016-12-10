@@ -63,5 +63,26 @@ public class CalculatorTest {
 		Optional<Integer> result = sut.div(0, 10);
 		assertEquals(result, Optional.of(0));
 	}
+
+	@Test
+	public void testThatSqrtFromNegative4GivesNone(){
+		Calculator sut = new Calculator();
+		Optional<Integer> result = sut.sqrt(-4);
+		assertEquals(result, Optional.empty());
+	}
+
+	@Test
+	public void testThatSqrtFrom0GivesSomeOf0(){
+		Calculator sut = new Calculator();
+		Optional<Integer> result = sut.sqrt(0);
+		assertEquals(result, Optional.of(0));
+	}
+
+	@Test
+	public void testThatSqrtFrom4GivesSomeOf2(){
+		Calculator sut = new Calculator();
+		Optional<Integer> result = sut.sqrt(4);
+		assertEquals(result, Optional.of(2));
+	}
 	
 }

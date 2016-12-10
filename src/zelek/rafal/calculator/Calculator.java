@@ -15,4 +15,11 @@ public class Calculator {
 			return Optional.of(i/j);
 	}
 
+	public Optional<Integer> sqrt(int i) {
+		if(i < 0)
+			return Optional.empty();
+		else
+			return Optional.of((int)Math.sqrt(i));
+	}
+
 }
