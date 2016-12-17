@@ -22,4 +22,8 @@ public class Calculator {
 			return Optional.of((int)Math.sqrt(i));
 	}
 
+	public int random(){
+		return 0;
+	}
+
 }
