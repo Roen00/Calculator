@@ -28,7 +28,7 @@ public class Calculator {
 	}
 
 	public int random(){
-		return 0;
+		return random.random();
 	}
 
 }
