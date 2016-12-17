@@ -3,11 +3,12 @@ package zelek.rafal.calculator;
 import static org.junit.Assert.*;
 
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import org.junit.Test;
 
 public class CalculatorTest {
-	Calculator sut = new Calculator();
+	Calculator sut = new Calculator(new DummyRandom(0));
 
 	@Test
 	public void testThat1Plus3Is4() {
@@ -77,7 +78,11 @@ public class CalculatorTest {
 	
 	@Test
 	public void testThatRandomFunctionReturnsGeneratedRandomNumber(){
-
+		Stream.of(1,0,-1000,1000,29834,-1).forEach(v -> {
+			final Calculator calculator = new Calculator(new DummyRandom(v));
+			final int result = calculator.random();
+			assertSame(result, v);
+		});
 	}
 	
 }

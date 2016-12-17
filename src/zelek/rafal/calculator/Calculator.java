@@ -3,6 +3,11 @@ package zelek.rafal.calculator;
 import java.util.Optional;
 
 public class Calculator {
+	final IRandom random;
+
+	public Calculator(IRandom random){
+		this.random = random;
+	}
 
 	public int add(int i, int j) {
 		return i + j;
