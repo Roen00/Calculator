@@ -9,6 +9,6 @@ public class DummyRandom implements IRandom{
 
     @Override
     public int random() {
-        return 0;
+        return value;
     }
 }

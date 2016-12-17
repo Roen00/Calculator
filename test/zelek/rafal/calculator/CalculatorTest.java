@@ -78,10 +78,11 @@ public class CalculatorTest {
 	
 	@Test
 	public void testThatRandomFunctionReturnsGeneratedRandomNumber(){
-		Stream.of(1,0,-1000,1000,29834,-1).forEach(v -> {
+		final Stream<Integer> integerStream = Stream.of(1, 0, -1000, 1000, 29834, -1);
+		integerStream.forEach(v -> {
 			final Calculator calculator = new Calculator(new DummyRandom(v));
 			final int result = calculator.random();
-			assertSame(result, v);
+			assert(result == v);
 		});
 	}
 	
